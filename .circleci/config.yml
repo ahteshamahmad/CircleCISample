@@ -7,6 +7,7 @@ jobs:
       - run:
           name: Pull private Docker image
           command:
+            systemctl enable docker.service
             systemctl start docker 
             docker login -u ahteshamdocker -p realme@1234
             docker pull ahteshamdocker/spring-boot-image:latest
