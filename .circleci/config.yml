@@ -1,18 +1,15 @@
 version: 2
 jobs:
   test:
-    working_directory: ~/app
+    working_directory: ~/CircleCISample
     docker:
-      - image: ahteshamdocker/app # (1)
+      - image: ahteshamdocker/myimage # (1)
     steps:
       - checkout
-      - run:
-          name: Run tests # (3)
-          command: 'git --version'
-      - checkout
-      - run: | # (5)    
-          docker login -u $ahteshamdocker -p $realme@1234
-          docker pull ahteshamdocker/app
+      - run: | # (5)  
+          docker build -t andrewbestbier/ci-comparison-blog .  
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker push andrewbestbier/ci-comparison-blog
 workflows:
   version: 2
   build-test-and-deploy:
