@@ -1,17 +1,11 @@
-version: 2
+version: 2.1
 jobs:
-  test:
-    working_directory: ~/CircleCISample
+  build:
     docker:
-      - image: ahteshamdocker/myimage # (1)
+      - image: ahteshamdocker/app
+        auth:
+          username: ahteshamdocker
+          password: realme@1234
     steps:
       - checkout
-      - run: | # (5)  
-          docker build -t andrewbestbier/ci-comparison-blog .  
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push andrewbestbier/ci-comparison-blog
-workflows:
-  version: 2
-  build-test-and-deploy:
-    jobs:
-      - test
+      - run: echo "testing"
