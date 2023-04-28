@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build:
+    machine: true
+    working_dir: ~/CircleCISample
+    steps:
+      - checkout
+
+      - run: |
+          docker login -u ahteshamdocker -p realme@1234
+          docker run -d --name  ahteshamdocker/spring-boot-image
+
+
