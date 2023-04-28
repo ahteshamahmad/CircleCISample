@@ -3,11 +3,9 @@ jobs:
   build:
     docker:
       - image: docker:20.10.7
-        auth:
-          username: ahteshamdocker
-          password: realme@1234
     steps:
       - run:
           name: Pull private Docker image
-          command: |
+          command:
+            docker login -u ahteshamdocker -p realme@1234
             docker pull ahteshamdocker/spring-boot-image:latest
