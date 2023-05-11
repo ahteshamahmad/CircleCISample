@@ -1,0 +1,25 @@
+version: 2.1
+
+orbs:
+  my-orb:
+    description: "My custom orb"
+    version: 1.0.0
+    namespace: ahteshamahmad
+    commands:
+      hello:
+        description: "Prints hello world"
+        steps:
+          - run: echo "Hello, world!"
+    jobs:
+      my-job:
+        description: "My first job"
+        executor: my-orb/default
+        steps:
+          - my-orb/hello
+
+workflows:
+  my-workflow:
+    jobs:
+      - my-orb/my-job:
+          context: my-context
+

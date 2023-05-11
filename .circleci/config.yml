@@ -1,11 +1,11 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: ahteshamdocker/app
-        auth:
-          username: ahteshamdocker
-          password: realme@1234
-    steps:
-      - checkout
-      - run: echo "testing"
+
+orbs:
+  my-orb: ahteshamahmad/my-orb@1.0.0
+
+workflows:
+  my-workflow:
+    jobs:
+      - my-orb/my-job:
+          context: my-context
+
