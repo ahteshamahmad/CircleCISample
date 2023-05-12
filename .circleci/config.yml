@@ -6,6 +6,6 @@ orbs:
 workflows:
   my-workflow:
     jobs:
-      - my-orb:
+      - my-job:
           context: my-context
 
