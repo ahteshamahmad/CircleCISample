@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  my-orb: ahteshamahmad/my-orb@1.0.0
+  my-orb: ahteshamahmad/job-build-deploy@1.0.0
 
 workflows:
   my-workflow:
