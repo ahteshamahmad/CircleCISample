@@ -4,8 +4,7 @@ orbs:
   my-orb: ahteshamahmad/job-build-deploy@0.0.1
 jobs:
   my-job:
-    docker:
-      - image: circleci/python:3.7
+    resource_class: ahteshamahmad/rhl_system_runner
     steps:
       - run: echo "Hello, World!"
 workflows:
