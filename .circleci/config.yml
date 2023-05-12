@@ -4,8 +4,8 @@ orbs:
   my-orb: ahteshamahmad/job-build-deploy@0.0.1
 jobs:
   my-job:
-    executor: my-orb/ahteshamahmad
-
+    docker:
+      - image: circleci/python:3.7
     steps:
       - run: echo "Hello, World!"
 workflows:
