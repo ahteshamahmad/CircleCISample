@@ -2,10 +2,14 @@ version: 2.1
 
 orbs:
   my-orb: ahteshamahmad/job-build-deploy@0.0.1
-
+jobs:
+  my-job:
+    executor: my-orb/default
+    steps:
+      - my-orb/my-step
 workflows:
   my-workflow:
     jobs:
       - my-job:
-          context: my-context
+          
 
