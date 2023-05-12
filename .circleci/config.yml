@@ -4,7 +4,7 @@ orbs:
   my-orb: ahteshamahmad/job-build-deploy@0.0.1
 jobs:
   my-job:
-    executor: ahteshamahmad/rhl_system_runner
+    executor: my-orb/ahteshamahmad
 
     steps:
       - run: echo "Hello, World!"
