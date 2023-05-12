@@ -5,12 +5,13 @@ orbs:
 jobs:
   my-job:
     resource_class: ahteshamahmad/rhl_system_runner
-  steps:
-    - run: echo "Hello, World!"
+    machine:
+      image: ubuntu-2004:202201-01
+    steps:
+      - run: echo "Hello, World!"
 workflows:
   my-workflow:
     jobs:
       - my-job
-      - steps
           
 
