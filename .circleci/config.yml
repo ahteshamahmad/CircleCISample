@@ -6,10 +6,10 @@ jobs:
   my-job:
     executor: my-orb/default
     steps:
-      - my-orb/my-step
+      - run: echo "Hello, World!"
 workflows:
   my-workflow:
     jobs:
-      - my-job:
+      - my-job
           
 
