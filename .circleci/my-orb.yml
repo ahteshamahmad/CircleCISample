@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  my-orb:
+  job-build-deploy:
     description: "My custom orb"
     version: 1.0.0
     namespace: ahteshamahmad
@@ -13,9 +13,9 @@ orbs:
     jobs:
       my-job:
         description: "My first job"
-        executor: my-orb/default
+        executor: job-build-deploy/default
         steps:
-          - my-orb/hello
+          - job-build-deploy/my-job
 
 workflows:
   my-workflow:
