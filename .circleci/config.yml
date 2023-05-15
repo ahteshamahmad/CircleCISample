@@ -1,17 +1,19 @@
 version: 2.1
-
-orbs:
-  my-orb: ahteshamahmad/job-build-deploy@0.0.1
 jobs:
-  my-job:
-    resource_class: ahteshamahmad/rhl_system_runner
-    machine:
-      image: ubuntu-2004:202201-01
+  build:
+    docker:
+      - image: docker:stable
+
     steps:
-      - run: echo "Hello, World!"
-workflows:
-  my-workflow:
-    jobs:
-      - my-job
-          
+      - checkout
+
+      # Build the Docker image using the Dockerfile
+      - run:
+          name: Build Docker image
+          command: docker build -t my-java-app .
+
+      # Run tests or any other build steps as needed
+      - run:
+          name: Run Tests
+          command: docker run my-java-app mvn test
 
