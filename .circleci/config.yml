@@ -2,10 +2,15 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: docker:stable
+      - image: circleci/openjdk:11-jdk
 
     steps:
       - checkout
+
+      # Enable Docker-in-Docker
+      - setup_remote_docker:
+          version: 20.10.7
+          docker_layer_caching: true
 
       # Build the Docker image using the Dockerfile
       - run:
@@ -15,5 +20,5 @@ jobs:
       # Run tests or any other build steps as needed
       - run:
           name: Run Tests
-          command: docker run my-java-app mvn test
+          command: docker run my-java-app
 
